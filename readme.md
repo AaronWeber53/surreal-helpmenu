@@ -14,3 +14,11 @@ Server-side
 /approver <id> <contact> <message>  (ID of the request, Contact name you want to show, Message to display)
 
 /denyr <id> <contact> <message>  (ID of the request, Contact name you want to show, Message to display)
+
+
+
+
+
+## Check out my Tebex ##
+Check out my tebex for my missions script to allow you to create robust missions with ease
+https://surreal-scripts.tebex.io/
