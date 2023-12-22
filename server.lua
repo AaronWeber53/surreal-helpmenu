@@ -1,16 +1,16 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local Requests = {}
 QBCore.Commands.Add("help", "Get help with Setup/View Commands/HotKeys", {}, false, function(source, args)
-    TriggerClientEvent('qb-help:client:help', source, QBCore.Functions.HasPermission(source, 'admin'))
+    TriggerClientEvent('surreal-helpmenu:client:help', source, QBCore.Functions.HasPermission(source, 'admin'))
 end)
 
-QBCore.Functions.CreateCallback('qb-help:server:getPlayerRequests', function(source, cb)	
+QBCore.Functions.CreateCallback('surreal-helpmenu:server:getPlayerRequests', function(source, cb)	
     local plicense = QBCore.Functions.GetIdentifier(source, 'license')
     local result = MySQL.Sync.fetchAll('SELECT * FROM feature_requests WHERE license=? ORDER BY last_updated desc', {plicense})    
 	cb(result or {})
 end)
 
-QBCore.Functions.CreateCallback('qb-help:server:getAllRequests', function(source, cb)	
+QBCore.Functions.CreateCallback('surreal-helpmenu:server:getAllRequests', function(source, cb)	
     if not QBCore.Functions.HasPermission(source, 'admin') then
         cb({})
         return
@@ -19,11 +19,15 @@ QBCore.Functions.CreateCallback('qb-help:server:getAllRequests', function(source
 	cb(result or {})
 end)
 
+-- Use this method if you want to return whatever name you want tied to the feature requests
 local function GetDiscordName(src)
-    return exports['Badger_Discord_API']:GetDiscordName(src)
+    if exports['Badger_Discord_API'] then
+        return exports['Badger_Discord_API']:GetDiscordName(src)
+    end
+    return nil
 end
 
-RegisterNetEvent('qb-help:server:submitRequest', function(requestData)
+RegisterNetEvent('surreal-helpmenu:server:submitRequest', function(requestData)
 	local src = source
     local plicense = QBCore.Functions.GetIdentifier(src, 'license')
     local PlayerData = QBCore.Functions.GetPlayer(src).PlayerData
@@ -39,7 +43,7 @@ RegisterNetEvent('qb-help:server:submitRequest', function(requestData)
 
 end)
 
-RegisterNetEvent('qb-help:server:approveRequest', function(data)
+RegisterNetEvent('surreal-helpmenu:server:approveRequest', function(data)
 	local src = source
     local hasPermAdmin = QBCore.Functions.HasPermission(src, 'admin')
     if not hasPermAdmin then
@@ -51,7 +55,7 @@ RegisterNetEvent('qb-help:server:approveRequest', function(data)
     UpdateRequest(discordName, 'Approved', data.response_reason, data.id)
 end)
 
-RegisterNetEvent('qb-help:server:denyRequest', function(data)
+RegisterNetEvent('surreal-helpmenu:server:denyRequest', function(data)
 	local src = source
     local hasPermAdmin = QBCore.Functions.HasPermission(src, 'admin')
     if not hasPermAdmin then
@@ -90,6 +94,7 @@ function DiscordLog(type, color, name, data, update, id)
 end
 
 
+-- Use this command to respond to requests within server console if you don't want to be online for it
 RegisterCommand('approver', function(source, args, rawCommand)
     --1: id 2: contact 3: message
     if args[1] and args[2] and args[3] and args[4] then

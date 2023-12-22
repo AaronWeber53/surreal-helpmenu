@@ -3,6 +3,7 @@
   src: url('../fonts/justsignature/JustSignature.woff');
 }
 
+/* Colors for the screen */
 :root {
   --color-transparentBackground: #121314cd;
   --color-dark: #000000;
