@@ -1,0 +1,100 @@
+<div>
+  <h1>Contact Us</h1>
+  <h5>Send us suggestions or bug reports</h5>
+  <h5>Please use /calladmin for any immediate issues needing help in game.</h5>
+  <details>
+    <summary>Feature Request</summary>
+    <form>
+      <label class="control-label requiredField" for="contact">
+        Contact Name
+       </label>
+       <input class="form-control" id="contact" name="contact" type="text" required/>
+        <label class="control-label requiredField" for="summary">
+         Subject
+        </label>
+        <input class="form-control" id="summary" name="summary" type="text" maxlength="40" required/>
+        <label class="control-label " for="information">
+         Additional Information
+        </label>
+        <textarea class="form-control" cols="40" id="information" name="information" rows="10" maxlength='500' required ></textarea>
+         <button class="submit formSubmit" name="submit" type="submit">
+          Submit Idea
+         </button>
+         <input type='hidden' id='type' name="type" value='F' />
+    </form>
+  </details>
+  <details>
+    <summary>Bug Report</summary>
+      <form>
+        <label class="control-label requiredField" for="contact">
+          Contact Name
+         </label>
+         <input class="form-control" id="contact" name="contact" type="text" required />
+          <label class="control-label requiredField" for="summary" >
+           Subject
+          </label>
+          <input class="form-control" id="summary" name="summary" type="text" maxlength="40" required />
+          <label class="control-label " for="information">
+           Additional Information
+          </label>
+          <textarea class="form-control" cols="40" id="information" name="information" rows="10" required></textarea>
+           <button class="submit formSubmit" name="submit" type="submit">
+            Submit Bug
+           </button>
+         <input type='hidden' id='type' name="type" value='B' />
+      </form>
+  </details>
+  <details>
+    <summary>Your Request Status</summary>
+    <section>
+      View Status of your request. Requests will only show for the last 30 days
+    </section>
+    <div id="playerRequests">
+
+
+    <details class="InProgress">      
+      <summary>(F) Request Summary Here</summary>
+      <section>
+        Requested (7/8/2022) by Contact Name
+
+        This will contain any request Additional details
+      </section>     
+      <section class="InProgress">
+        <h4>Response - InProgress</h4>
+        
+        (7/8/2022) - InProgress by 
+        
+      </section> 
+    </details>
+    <details class="Approved">
+      <summary>(B) Fix Car Values</summary>
+      <section>
+        - Within your radial menu select "Toggle Deliveries" which will begin to give you waypoints in which to deliver to. 
+        
+        - When you reach your destination you must grab packages out of your van and then bring them to the desired spot for the delivery.
+
+        - After finishing a shipment your payslip will begin to fill out. To collect your money return to the docks and interact with the computer.
+      </section>
+      <section class="Denied">
+        <h4>Response - Denied</h4>
+        
+        (7/9/2022) - Approved by AmaterasuFe
+        This feature has been placed into our planning stage. Keep an eye out for release notes or feel free to contact us if you have any questions
+      </section>
+    </details>
+    <details class="Denied">
+      <summary>(B) Fix Car Values</summary>
+      <section>
+        Requested (7/8/2022) by Contact Name
+        
+        The tron bike does not go fast enough.
+      </section>
+      <section class="Denied">
+        <h4>Response</h4>
+        (7/9/2022) - Denied by AmaterasuFe
+        This feature is already within the game
+      </section>
+    </details>
+  </div>
+  </details>
+</div>

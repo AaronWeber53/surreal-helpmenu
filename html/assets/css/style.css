@@ -1,0 +1,286 @@
+@font-face {
+  font-family: justsignature;
+  src: url('../fonts/justsignature/JustSignature.woff');
+}
+
+:root {
+  --color-transparentBackground: #121314cd;
+  --color-dark: #000000;
+  --color-gray: #2a2d2f;
+  --color-gray2: #2a2d2f;
+  --color-darkgray: #121314;
+  --color-white: #ffffff;
+  --color-gold: #B88843;
+  --color-goldDark: #836030;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;  
+
+}
+
+body {
+  color: white;
+  font-family: sans-serif;
+  line-height: 1.35;
+  letter-spacing: 1px;
+}
+
+
+section {
+  padding: 0px 10px 5px 10px;
+  margin: 0;
+  white-space: pre-line;
+  color: #aaaaaa;
+}
+section > summary, section > details, section section {
+  margin-left: 10px;
+}
+
+.container {
+  background: var(--color-transparentBackground);
+  position: absolute; 
+  width: 50%;
+  height: 96.5%;
+  left: 2.0%;
+  top: 1.5%;
+  padding: .1%;
+  border-radius: 8px;
+  padding-top:0;
+  border: 3px rgb(69, 69, 69) solid;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  color: #9e9e9e;
+  font-size: 12px;
+}
+
+h3, h1, h4 {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav Styling START */
+.navbar {
+  position: sticky;
+  top: .1%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  border-radius: .5%;
+}
+
+.navbar a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px 10px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.navbar a:not(.cityText):hover {
+  background: var(--color-gold);
+}
+
+.navbar .rightMenu {
+  display:block; 
+  margin-left: auto; 
+  padding: 15px 10px;
+  font-size: 17px;
+}
+
+a.close {
+  padding-left:20px;
+  padding-right:20px;
+  border-radius: 5px;
+  background: rgb(53, 26, 35);
+}
+a.close:hover {
+  background: rgb(100, 31, 31);
+}
+
+.inner {
+  background-color: var(--color-gray2);
+  display:flex;
+  flex-wrap: wrap-reverse;
+  margin-top: .1%;
+  border-radius: 5px;
+  border: 2px rgb(91, 90, 90) solid;
+}
+.lower {
+  background-color: var(--color-gray);
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 2px rgb(91, 90, 90) solid;
+}
+.lower a {
+  padding: 8px 10px;
+}
+
+.active{
+  background-color: var(--color-gold);
+}
+/* Nav Styling END */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+}
+.main{
+  margin:1%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-grow: 1;
+  width: 98%;
+}
+
+.main div {
+  width: 100%;
+}
+img#blip {
+  vertical-align: middle;
+}
+
+/* Details Section styling  */
+details {
+  width: 100%;
+  background: #282828;
+  margin-bottom: .5rem;
+  box-shadow: 0 .1rem 1rem -.5rem rgba(0,0,0,.4);
+  border-radius: 5px;
+  overflow: hidden;
+  padding-left: 5px;
+}
+details details {
+  padding-left: 0;
+  background-color: #2c2c2c;
+  border: var(--color-goldDark) 1px solid;
+}
+
+summary {
+  padding: 1rem;
+  display: block;
+  background: #333;
+  padding-left: 2.2rem;
+  position: relative;
+  cursor: pointer;
+  color: white;
+  
+}
+
+summary:before {
+  content: '';
+  border-width: .4rem;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+  position: absolute;
+  top: 1.3rem;
+  left: 1rem;
+  transform: rotate(0);
+  transform-origin: .2rem 50%;
+  transition: .25s transform ease;
+}
+summary::after {
+  padding-left: 20px;
+}
+
+/* THE MAGIC 🧙‍♀️ */
+details[open] > summary:before {
+  transform: rotate(90deg);
+}
+
+details summary::-webkit-details-marker {
+  display:none;
+}
+
+ul {
+  padding: 0 10px;
+  margin: 0;
+  white-space: unset;
+}
+
+ul > li {
+  white-space: pre-line;
+}
+
+form {
+  padding: 0px 10px 5px 10px;
+  margin: 0;
+}
+
+form > input[type=text], form > textarea {
+  font-family: sans-serif;
+  background-color: var(--color-gray);
+  color: var(--color-white);
+  width: 100%;
+  padding: 6px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+form > .submit{
+  width: 100%;
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 1px;
+}
+
+form > .approve {
+  width: 45%;
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 1px;
+}
+form > .deny {
+  width: 45%;
+  background-color: darkred;
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 1px;
+}
+
+form > .submit:hover {
+  background-color: var(--color-goldDark);
+}
+
+form > label {
+  padding: 0;
+  margin: 0;
+}
+
+details.InProgress {
+  border: var(--color-goldDark) 1px dashed;
+}
+details.Approved {
+  border: darkgreen 1px solid;
+}
+details.Denied {
+  border: darkred 1px solid;
+}
